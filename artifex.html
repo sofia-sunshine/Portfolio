@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>artifex</title>
+		<link rel="stylesheet" href="artifex.css"/>
+        <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+        <link rel="icon" type="image/x-icon" href="LOGO.png">
+        <style>
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+
+.menu {
+	position: fixed;
+	width: 100%;
+	height: 100vh;
+	display: flex;
+    font-family:'Revolver', serif;
+
+    
+}
+
+.hr {
+	position: fixed;
+	left: 50%;
+	width: 6px;
+	height: 100vh;
+	background-color: #fff;
+	z-index: 1;
+	transform: scaleY(0);
+}
+
+.menu-left,
+.menu-right {
+	position: fixed;
+	width: 50%;
+	height: 100vh;
+	background: rgb(0, 0, 0);
+	color: #fff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: -1;
+}
+
+.menu-left {
+	left: -50%;
+}
+
+.menu-right {
+	right: -50%;
+}
+
+.menu-link a {
+	text-decoration: none;
+	color: #E43F3F;
+	font-size: 100px;
+    font-weight: 900;
+}
+
+.menu-link:first-child a::before {
+	display: block;
+	position: relative;
+	content: "";
+	background-image: url("brush-stroke.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	top: 80px;
+	left: 0;
+	height: 40px;
+	width: 240px;
+}
+
+.menu-link a span {
+	font-family: 'Revolver', serif;
+	font-size: 24px;
+}
+
+.menu-close {
+	z-index: 2;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	cursor: pointer;
+	opacity: 1;
+}
+
+.menu-close-img {
+	width: 140px;
+	height: 140px;
+	border-radius: 100%;
+	border: 10px solid  rgb(0, 0, 0);
+}
+
+.logo {
+	width: 100%;
+}
+
+.icon{
+    width: 100%;
+}
+.menu-open {
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	right: 0;
+	padding: 2rem;
+	cursor: pointer;
+	font-size: 100px;
+	color: rgb(255, 255, 255);
+	font-family: 'Revolver', serif;
+}
+
+@media (max-width: 900px) {
+	.menu-right {
+		display: none;
+	}
+
+	.menu-left {
+		width: 100%;
+	}
+
+	.menu-close {
+		position: fixed;
+		top: 10%;
+		left: 80%;
+		transform: translate(-50%, -50%);
+		margin: 40px;
+	}
+
+	.hr {
+		display: none;
+	}
+
+	.logo {
+		width: 40%;
+	}
+}
+
+            </style>
+	</head>
+	<body>
+        <div class="container">
+			<div class="menu-close">
+				<div class="menu-close-img"><img src="close-icon.png" alt="" class="icon"/></div>
+			</div>
+			<div class="hr"></div>
+			<div class="menu">
+				<div class="menu-left">
+					<div class="menu-links">
+						<div class="menu-link">
+							<a href="index.html">h o m e <span> 01</span></a>
+						</div>
+						<div class="menu-link">
+							<a href="about.html">a b o u t <span> 02</span></a>
+						</div>
+						<div class="menu-link">
+							<a href="artifex.html"> a r t i f e x <span> 03</span></a>
+						</div>
+                        <div class="menu-link">
+							<a href="galeria.html">g a l e r i a <span> 04</span></a>
+						</div>
+						<div class="menu-link">
+							<a href="contact form.html" target="_blank" rel="noreferrer noopener">c o n t a c t <span> 05</span></a>
+						</div>
+					</div>
+				</div>
+				<div class="menu-right">
+					<div class="contact">
+						<img src="LOGO1.png" class="logo">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="menu-open">menu</div>
+		<script>
+			tl = new TimelineMax({ paused: true });
+
+			tl.to(".menu-left", 1, {
+				left: 0,
+				ease: Expo.easeInOut,
+			});
+
+			tl.to(
+				".menu-right",
+				1,
+				{
+					right: 0,
+					ease: Expo.easeInOut,
+				},
+				"-=1"
+			);
+
+			tl.staggerFrom(
+				".menu-links > div",
+				0.8,
+				{
+					y: 100,
+					opacity: 0,
+					ease: Expo.easeOut,
+				},
+				"0.1",
+				"-=0.4"
+			);
+
+			tl.from(
+				".menu-close",
+				1,
+				{
+					scale: 0,
+					opacity: 1,
+					ease: Expo.easeInOut,
+				},
+				"-=1"
+			);
+
+			tl.to(
+				".hr",
+				0.4,
+				{
+					scaleY: 1,
+					transformOrigin: "0% 50%",
+					ease: Power2.ease,
+				},
+				"-=2"
+			);
+
+			tl.reverse();
+			$(document).on("click", ".menu-open", function () {
+				tl.reversed(!tl.reversed());
+			});
+			$(document).on("click", ".menu-close", function () {
+				tl.reversed(!tl.reversed());
+			});
+		</script>
+
+        <div class="container1">
+          
+            <div class="gallery-wrap">
+              <div class="item item-1"></div>
+              <div class="item item-2"></div>
+              <div class="item item-3"></div>
+              <div class="item item-4"></div>
+              <div class="item item-5"></div>
+            </div>
+          </div>
+
+
+
+	</body>
+</html>

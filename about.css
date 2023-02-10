@@ -1,0 +1,79 @@
+
+@font-face {
+    font-family: Revolver;
+    src: url(RevolverBlackletter-Regular.otf);
+}
+
+    @font-face{
+
+    font-family: Didot;
+    src: url(Didot\ Regular.ttf);
+    }
+
+    @font-face{
+
+        font-family: DidotItalic;
+        src: url(Didot\ LT\ Std\ Italic.otf);
+        }
+
+        @font-face{
+
+            font-family: DidotBold;
+            src: url(Didot\ LT\ Std\ Bold.otf);
+            }
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+  }
+
+body{
+    background: url(bg2.jpg) 10% no-repeat;
+    background-size: cover;
+     width: 100%;
+    height: 100px;
+    max-height: 100%;
+}
+
+.content{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: #ffffff;
+    z-index: -1;
+    width: 50%;
+    text-align: center;
+    align-items: center;
+  }
+  .content .header{
+    font-size: 100px;
+    font-weight: 700;
+    font-family: 'Revolver', serif;
+  }
+  .content p{
+    font-size: 18px;
+    font-weight: 700;
+    font-family: 'DidotItalic', serif;
+    line-height: 1.5;
+    margin-top: 5%;
+
+}
+
+.header-img {
+    margin-top:100px;
+    width: 20%;
+
+}
+
+h1{
+    margin-top: 10px;;
+    color: #E43F3F;
+    font-family: 'DidotBold', serif;
+}
+
+h3{
+    font-family: 'DidotItalic', serif;
+}

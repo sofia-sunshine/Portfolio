@@ -1,0 +1,23 @@
+
+@font-face {
+    font-family: Revolver;
+    src: url(RevolverBlackletter-Regular.otf);
+}
+
+    @font-face{
+
+    font-family: Didot;
+    src: url(Didot\ Regular.ttf);
+    }
+
+    @font-face{
+
+        font-family: DidotItalic;
+        src: url(Didot\ LT\ Std\ Italic.otf);
+        }
+
+        @font-face{
+
+            font-family: DidotBold;
+            src: url(Didot\ LT\ Std\ Bold.otf);
+            }

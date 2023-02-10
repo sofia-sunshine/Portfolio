@@ -1,0 +1,77 @@
+
+@font-face {
+    font-family: Revolver;
+    src: url(RevolverBlackletter-Regular.otf);
+}
+
+    @font-face{
+
+    font-family: Didot;
+    src: url(Didot\ Regular.ttf);
+    }
+
+    @font-face{
+
+        font-family: DidotItalic;
+        src: url(Didot\ LT\ Std\ Italic.otf);
+        }
+
+        @font-face{
+
+            font-family: DidotBold;
+            src: url(Didot\ LT\ Std\ Bold.otf);
+            }
+
+            html,body{
+                width: 100%;
+                height: 100%;
+              }
+              
+              .container{
+                margin: 0 auto;
+                width: 1140px;
+              }
+
+
+.gallery-wrap {
+    padding-top: 0%;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 90vh;
+}
+
+.item {
+  flex: 1;
+  height: 120%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: none;
+  transition: flex 0.8s ease;
+  
+}
+
+.item-1 { 
+  background-image: url('artifex.png');
+}
+
+.item-2 { 
+  background-image: url('minghao.png');
+}
+
+.item-3 { 
+  background-image: url('chaeyoung.png');
+}
+
+.item-4 { 
+  background-image: url('hyunjin.png');
+}
+
+.item-5 { 
+  background-image: url('yunjin.png');
+}
+
+img{
+    display: block;
+    width: 30px;
+}
